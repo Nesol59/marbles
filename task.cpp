@@ -53,20 +53,18 @@ void taskBalls() {
     int n;
 
     if (choice == 1) {
-        std::cout << "Введите количество шариков: ";
-        std::cin >> n;
-
-        std::cout << "Введите " << n << " цветов (через пробел): ";
+        n = InputValidator::getInt("Введите количество шариков (1-100000): ", 1, 100000);
         balls.resize(n);
-        for (int i = 0; i < n; ++i) {
-            std::cin >> balls[i];
+        for (int i = 0; i < n; i++) {
+            int b = InputValidator::getInt("Введите цвет: ", 1, 10);
+            balls[i] = b;
         }
         InputValidator::clearInputStream();
         std::cout << "\nВведённая последовательность: ";
         printBalls(balls);
     }
     else {
-        n = InputValidator::getInt("Введите количество шариков (1-50): ", 1, 50);
+        n = InputValidator::getInt("Введите количество шариков (1-100000): ", 1, 100000);
         balls.resize(n);
         for (int i = 0; i < n; ++i) {
             balls[i] = rand() % 10;

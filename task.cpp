@@ -56,7 +56,7 @@ void taskBalls() {
         n = InputValidator::getInt("Введите количество шариков (1-100000): ", 1, 100000);
         balls.resize(n);
         for (int i = 0; i < n; i++) {
-            int b = InputValidator::getInt("Введите цвет: ", 1, 10);
+            int b = InputValidator::getInt("Введите цвет: ", 0, 9);
             balls[i] = b;
         }
         InputValidator::clearInputStream();
